@@ -1,198 +1,352 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- SEO -->
+<meta name="description" content="Aditya Raj Poudel — CS student based in Baltimore, MD." />
 
-<html>
-    <head><title>Aditya Raj Poudel</title>
-      <style>
-        body {
-            background-color: rgb(34, 47, 110);
-            color: #CCCCCC;
+<!-- Open Graph (WhatsApp, Discord, iMessage, LinkedIn) -->
+<meta property="og:title" content="Aditya Raj Poudel" />
+<meta property="og:description" content="CS student based in Baltimore, MD." />
+<meta property="og:image" content="https://adityapoudel.live/pngs/preview.png" />
+<meta property="og:url" content="https://adityapoudel.live" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aditya Raj Poudel" />
+<meta name="twitter:description" content="CS student based in Baltimore, MD." />
+<meta name="twitter:image" content="https://adityapoudel.live/pngs/preview.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditya Raj Poudel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            dm: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            bg: '#0d0f1e',
+            surface: '#13152a',
+            surface2: '#1a1d35',
+            accent: '#7c6dfa',
+            accent2: '#fa6d8f',
+            muted: '#7878a0',
+          },
         }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #0d0f1e; font-family: 'DM Sans', sans-serif; }
 
-        h1, h2{
-          text-align: center;
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 10% 15%, rgba(124,109,250,0.11) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 40% at 90% 80%, rgba(250,109,143,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .about {
-          background-color: rgb(46, 50, 117);
-          padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
+    .nav-glass {
+      background: rgba(19, 21, 42, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(124, 109, 250, 0.15);
+    }
 
-        }
+    .card {
+      background: #13152a;
+      border: 1px solid rgba(124, 109, 250, 0.13);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .card:hover { border-color: rgba(124, 109, 250, 0.32); }
 
-        .contact {
-          background-color: rgb(46, 50, 117);
-          padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    .project-card {
+      background: #13152a;
+      border: 1px solid rgba(124, 109, 250, 0.13);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124, 109, 250, 0.42);
+      box-shadow: 0 16px 48px rgba(124, 109, 250, 0.14);
+    }
 
-        .projects{
-          background-color: rgb(46, 50, 117);
-          padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.show { opacity: 1; transform: translateY(0); }
 
-        .intro{
-          background-color: rgb(46, 50, 117);
-          padding:20px;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
-            text-align: center;
+    .stagger > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger > *:nth-child(2) { transition-delay: 0.15s; }
+    .stagger > *:nth-child(3) { transition-delay: 0.25s; }
+    .stagger > *:nth-child(4) { transition-delay: 0.35s; }
 
+    .nav-link {
+      color: #7878a0;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #e0e0f5;
+      background: rgba(124, 109, 250, 0.16);
+    }
 
-        }
+    .tag {
+      display: inline-block;
+      background: rgba(124, 109, 250, 0.1);
+      border: 1px solid rgba(124, 109, 250, 0.22);
+      color: #a99dff;
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 3px 11px;
+      border-radius: 999px;
+    }
 
-        .experience{
-          background-color: rgb(46, 50, 117);
-          padding:20px;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
-          
-          
-        }
+    .grad-line {
+      height: 2px;
+      width: 36px;
+      background: linear-gradient(90deg, #7c6dfa, #fa6d8f);
+      border-radius: 2px;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7c6dfa;
+    }
 
-        img {
-            margin: 10px;
-            align-items: center;
-        }
+    .btn-primary {
+      background: #7c6dfa;
+      color: white;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
 
-        html{
-          scroll-behavior: smooth;
-        }
+    .proj-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(124, 109, 250, 0.13);
+    }
 
-        .center-img{
-            display: block;
-            margin: 0 auto;
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      opacity: 0.7;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .social-icon:hover { opacity: 1; transform: translateY(-2px); }
+  </style>
+</head>
+<body class="text-gray-300 min-h-screen relative">
 
-        }
+  <!-- Floating Nav -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 nav-glass rounded-full px-2 py-1.5 flex gap-0.5" style="max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+    <a href="#home" class="nav-link" style="white-space:nowrap">Home</a>
+    <a href="#about" class="nav-link" style="white-space:nowrap">About</a>
+    <a href="#experience" class="nav-link" style="white-space:nowrap">Experience</a>
+    <a href="#showcase" class="nav-link" style="white-space:nowrap">Showcase</a>
+    <a href="#contact" class="nav-link" style="white-space:nowrap">Contact</a>
+  </nav>
 
-        .project-grid{
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
+  <main class="relative z-10 max-w-3xl mx-auto px-5 pt-28 pb-24 flex flex-col gap-6">
 
-        .project-line{
-          background-color: rgb(34, 47, 110);
-          padding: 10px;
-          border-radius: 10px;
-          width: 300px;
-          text-align: center;
-        }
-
-        .project-line img{
-          width: 100%;
-          height: auto;
-        }
-
-
-    </style>
-    </head>
-
-    <body ><script></script>
-      <!-- Navigation Bar -->
-<nav style="position: relative; width: 100%; display: flex; justify-content: center; margin-top: 20px;">
-  <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 15px; background-color: rgb(46, 50, 117); padding: 10px 20px; border-radius: 10px;">
-    <li><a href="#home" style="text-decoration: none; color: #CCCCCC;">Home</a></li>
-    <li><a href="#about" style="text-decoration: none; color: #CCCCCC;">About Me</a></li>
-    <li><a href="#experience" style="text-decoration: none; color: #CCCCCC;">Experience</a></li>
-     <li><a href="#showcase" style="text-decoration: none; color: #CCCCCC;">Showcase</a></li>
-    <li><a href="#contact" style="text-decoration: none; color: #CCCCCC;">Contact Me</a></li>
-  </ul>
-</nav>
-
-      <div class ="intro" id = "home">
+    <!-- Hero -->
+<section id="home" class="fade-up">
+  <div class="card rounded-2xl p-6 sm:p-9">
+    <div class="flex items-center gap-6 sm:gap-10">
       
-    <h2 >A small dose, not of genius, but of an <u>imaginative freedom</u> which in a larger dose would be insanity.</h2>
-  </div>
-      <div  class= "about" id = "about">  <h1>About Me</h1>
-        <p>
-        Hi, I am Aditya and I am still figuring out what to do in my life and I think its okay :).
-      
-         
+      <!-- Text -->
+      <div class="flex-1 min-w-0">
+        <p class="section-label mb-3">Portfolio · 2026</p>
+        <h1 class="font-syne text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-1">
+          Aditya Raj Poudel
+        </h1>
+        <p class="text-sm mb-5" style="color:#7878a0">Computer Science student &nbsp;·&nbsp; Baltimore, MD</p>
+        <div class="grad-line mb-5"></div>
+        <p class="font-syne text-lg font-semibold text-gray-200 leading-relaxed">
+          "A small dose, not of genius, but of an
+          <span style="color:#7c6dfa">imaginative freedom</span>
+          which in a larger dose would be insanity."
         </p>
-        <p>
-Currently, I am living in Baltimore, MD. I'm pursuing a bachelor's degree in Computer Science, driven by my passion for technology, mathematics and problem-solving. I was born
-and raised in serene hills of Nepal. I moved to USA on fall of 2023.
-</p>
-       
       </div>
 
-<div class ="experience" id ="experience">
-<h1>Work Experience</h1>
-<p>I have worked as a part-time tutor at Student Success Center at CCBC Essex from May 2024 to December 2025. 
-  I helped fellow students with Mathematics and CSIT problems mainly. I have completed my CLRA Level 2 certification.</p>
-
-  
-  <p><img src="pngs/experience1.png" alt="SSC picture" width="400" height="auto" class = "center-img"></p>
-
-</div>
-<div class ="projects" id = "showcase">
-  <h1>Showcase</h1>
-
-  <div class = "project-grid">
-    <div class = "project-line">
-  <h3>Arkanoid</h3>
-  <a href="https://github.com/inctheflow/ARKANOIDgame" target="_blank">
-    <img src="pngs/Arkanoid.png" alt="Arkanoid Preview" class = "center-img">
-  </a>
-  
-</div>
-<div class = "project-line">
-  <h3>Tic Tac Toe</h3>
-  <a href="https://github.com/inctheflow/tic-tac-toe" target="_blank">
-    <img src="pngs/tic-tac-toe.png" alt="Tic Tac Toe Preview" class = "center-img">
-  </a>
-  
-</div>
-<div class = "project-line">
-  <h3>Let's Football</h3>
-  <a href="https://adityapoudel.itch.io/lets-football?secret=7QTnwbIa13SnQhAHfagF4Shq2o" target="_blank">
-    <img src="pngs/letsfootball.png" alt="Let's Football Preview" class = "center-img">
-  </a>
-  
-</div>
-</div>
-</div>
-
-
-
-        <div class ="contact" id = "contact"><h1>Contact Me</h1>
-<p ><a href="mailto:adityarajpoudel@gmail.com" >
-   <button>
-      EMAIL ME
-    </button>
-  </a></p>
-  
-  <h3>
-    You can reach out to me via
-  </h3>
-<p>
-    <a href="https://www.linkedin.com/in/aditya-poudel-526a66277/" target="_blank">
-      <img src="pngs/linkedin1.png" alt="Linkedin" width="80" />
-    </a>
-    <a href="https://github.com/inctheflow" target="_blank">
-      <img src="pngs/github1.png" alt="Github" width="80" />
-    </a>
-
-  </p>
+      <!-- Photo -->
+      <div class="flex-shrink-0 hidden sm:block">
+        <img src="pngs/preview.png" alt="Aditya Raj Poudel"
+          class="w-32 h-32 rounded-2xl object-cover"
+          style="border: 2px solid rgba(124,109,250,0.25)" />
       </div>
-              </body>
-          
-          </html>
+
+    </div>
+  </div>
+</section>
+
+    <!-- About -->
+    <section id="about" class="fade-up">
+      <div class="card rounded-2xl p-6 sm:p-9">
+        <p class="section-label mb-2">About Me</p>
+        <h2 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Still figuring it out — and that's okay.</h2>
+        <div class="grad-line mt-3 mb-5"></div>
+        <p class="leading-relaxed mb-3" style="color:#7878a0">
+          Hi, I'm Aditya. Currently living in Baltimore, MD, pursuing a bachelor's in Computer Science — driven by a passion for technology, mathematics, and problem-solving.
+        </p>
+        <p class="leading-relaxed mb-5" style="color:#7878a0">
+          Born and raised in the serene hills of Nepal, I moved to the USA in the fall of 2023.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="fade-up">
+      <div class="card rounded-2xl p-6 sm:p-9">
+        <p class="section-label mb-2">Work Experience</p>
+        <div class="flex items-start justify-between gap-3 flex-wrap mb-1">
+          <h2 class="font-syne text-xl font-bold text-white">Student Success Center — CCBC Essex</h2>
+          <span class="text-xs px-3 py-1 rounded-full border whitespace-nowrap" style="color:#7878a0; background:#1a1d35; border-color:rgba(255,255,255,0.06)">May 2024 – Dec 2025</span>
+        </div>
+        <div class="grad-line mt-3 mb-5"></div>
+        <p class="leading-relaxed mb-4" style="color:#7878a0">
+          Worked part-time as a tutor, helping fellow students with Mathematics and CSIT problems. Earned my CLRA Level 2 certification during this role.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tag">Tutoring</span>
+          <span class="tag">Mathematics</span>
+          <span class="tag">CSIT</span>
+        </div>
+        <img src="pngs/experience1.png" alt="Student Success Center"
+          class="rounded-xl w-full max-w-sm" style="border: 1px solid rgba(124,109,250,0.12)" />
+      </div>
+    </section>
+
+    <!-- Showcase -->
+    <section id="showcase" class="fade-up">
+      <p class="section-label mb-1">Showcase</p>
+      <h2 class="font-syne text-2xl font-bold text-white mb-1">Things I've Built</h2>
+      <div class="grad-line mt-2 mb-5"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger">
+
+        <a href="https://baltimore-crime-analysis-dashboard.onrender.com" target="_blank"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/homicide.png" alt="Homicide Dashboard" class="proj-img" />
+          <div class="p-4">
+            <h3 class="font-syne font-bold text-white text-sm mb-1 leading-snug">Automated Homicide Data Scraper & Visualizer</h3>
+            <span class="text-xs font-semibold" style="color:#7c6dfa">Live Demo →</span>
+          </div>
+        </a>
+
+        <a href="https://adityapoudel.itch.io/lets-football?secret=7QTnwbIa13SnQhAHfagF4Shq2o" target="_blank"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/letsfootball.png" alt="Let's Football" class="proj-img" />
+          <div class="p-4">
+            <h3 class="font-syne font-bold text-white text-sm mb-1">Let's Football</h3>
+            <span class="text-xs font-semibold" style="color:#7c6dfa">Play on itch.io →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/inctheflow/ARKANOIDgame" target="_blank"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/Arkanoid.png" alt="Arkanoid" class="proj-img" />
+          <div class="p-4">
+            <h3 class="font-syne font-bold text-white text-sm mb-1">Arkanoid</h3>
+            <span class="text-xs font-semibold" style="color:#7c6dfa">View on GitHub →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/inctheflow/tic-tac-toe" target="_blank"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/tic-tac-toe.png" alt="Tic Tac Toe" class="proj-img" />
+          <div class="p-4">
+            <h3 class="font-syne font-bold text-white text-sm mb-1">Tic Tac Toe</h3>
+            <span class="text-xs font-semibold" style="color:#7c6dfa">View on GitHub →</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-up">
+      <div class="card rounded-2xl p-6 sm:p-9">
+        <p class="section-label mb-2">Contact</p>
+        <h2 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Let's Connect</h2>
+        <div class="grad-line mt-3 mb-5"></div>
+        <p class="leading-relaxed mb-6" style="color:#7878a0">
+          Feel free to reach out — whether it's about a project, a question, or just to say hi.
+        </p>
+        <div class="flex items-center gap-4 flex-wrap">
+          <a href="mailto:adityarajpoudel@gmail.com" class="btn-primary">✉&nbsp; Email Me</a>
+          <div class="flex gap-3 items-center">
+            <a href="https://www.linkedin.com/in/aditya-poudel-526a66277/" target="_blank">
+              <img src="pngs/linkedin1.png" alt="LinkedIn" class="social-icon" />
+            </a>
+            <a href="https://github.com/inctheflow" target="_blank">
+              <img src="pngs/github1.png" alt="GitHub" class="social-icon" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(s => navObserver.observe(s));
+  </script>
+</body>
+</html>
