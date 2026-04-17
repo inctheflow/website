@@ -318,7 +318,7 @@
         <p class="leading-relaxed mb-6" style="color:#7878a0">
           Feel free to reach out — whether it's about a project, a question, or just to say hi.
         </p>
-        <div class="flex items-center gap-4 flex-wrap">
+        <div class="flex items-center gap-4 flex-wrap mb-8">
           <a href="mailto:adityarajpoudel@gmail.com" class="btn-primary">✉&nbsp; Email Me</a>
           <div class="flex gap-3 items-center">
             <a href="https://www.linkedin.com/in/aditya-poudel-526a66277/" target="_blank">
@@ -329,6 +329,43 @@
             </a>
           </div>
         </div>
+
+        <div class="grad-line mb-6"></div>
+        <p class="font-syne font-semibold text-white mb-3">Send an Anonymous Message</p>
+        <form id="anon-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="af8a3809-a27a-4fd5-9dcb-15fa8971ffc3" />
+          <input type="hidden" name="subject" value="Anonymous message from adityapoudel.live" />
+          <input type="hidden" name="from_name" value="Anonymous" />
+          <textarea name="message" rows="4" placeholder="Type your message..." required
+            style="width:100%;background:#1a1a2e;color:#e0e0f0;border:1px solid #2e2e4e;border-radius:0.75rem;padding:0.75rem 1rem;font-size:0.875rem;resize:vertical;outline:none;"
+            onfocus="this.style.borderColor='#7c6dfa'" onblur="this.style.borderColor='#2e2e4e'"></textarea>
+          <button type="submit" class="btn-primary mt-3">Send Anonymously</button>
+          <p id="anon-status" class="mt-3 text-sm" style="color:#7c6dfa;display:none;"></p>
+        </form>
+        <script>
+          document.getElementById('anon-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const status = document.getElementById('anon-status');
+            const btn = this.querySelector('button[type=submit]');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            const res = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: new FormData(this)
+            });
+            const data = await res.json();
+            status.style.display = 'block';
+            if (data.success) {
+              status.textContent = 'Message sent!';
+              this.reset();
+            } else {
+              status.style.color = '#f87171';
+              status.textContent = 'Something went wrong. Please try again.';
+            }
+            btn.disabled = false;
+            btn.textContent = 'Send Anonymously';
+          });
+        </script>
       </div>
     </section>
 
