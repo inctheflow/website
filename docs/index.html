@@ -187,13 +187,14 @@
     /* ── Chat Widget ── */
     #chat-widget {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 20px;
+      left: 0;
       z-index: 9999;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
     }
 
     #chat-bubble {
@@ -237,46 +238,28 @@
     }
 
     #chat-robot-btn {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7c6dfa, #b06dfa);
-      border: 2.5px solid rgba(255,255,255,0.15);
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: none;
+      border: none;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      box-shadow: 0 4px 24px rgba(124,109,250,0.55), 0 0 0 0 rgba(124,109,250,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: raccoon-bounce 2.4s ease-in-out infinite, raccoon-glow 2.4s ease-in-out infinite;
-      position: relative;
+      font-size: 40px;
+      line-height: 1;
+      padding: 0;
+      display: block;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+      animation: run-bob 0.35s ease-in-out infinite;
+      transition: filter 0.2s;
     }
     #chat-robot-btn:hover {
-      transform: scale(1.15) rotate(-8deg);
-      box-shadow: 0 8px 36px rgba(124,109,250,0.7);
+      filter: drop-shadow(0 3px 14px rgba(124,109,250,0.8));
       animation: none;
+      transform: scale(1.2);
     }
-    #chat-robot-btn::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 2px dashed rgba(124,109,250,0.35);
-      animation: spin-ring 8s linear infinite;
-    }
-    @keyframes raccoon-bounce {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      25%       { transform: translateY(-6px) rotate(4deg); }
-      75%       { transform: translateY(-3px) rotate(-3deg); }
-    }
-    @keyframes raccoon-glow {
-      0%, 100% { box-shadow: 0 4px 24px rgba(124,109,250,0.55), 0 0 0 0 rgba(124,109,250,0.4); }
-      50%       { box-shadow: 0 4px 32px rgba(124,109,250,0.8), 0 0 20px 4px rgba(124,109,250,0.25); }
-    }
-    @keyframes spin-ring {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
+    @keyframes run-bob {
+      0%, 100% { transform: translateY(0) scaleY(1); }
+      50%       { transform: translateY(-6px) scaleY(0.93); }
     }
 
     #chat-bubble-text {
@@ -662,13 +645,41 @@
 
     const history = [];
 
+    // Raccoon running animation
+    const raccoonSize = 48;
+    let raccoonX = window.innerWidth - raccoonSize - 24;
+    let raccoonDir = -1; // -1 = left, 1 = right
+    const raccoonSpeed = 2;
+    let raccoonRunning = true;
+
+    function runRaccoon() {
+      if (raccoonRunning) {
+        raccoonX += raccoonSpeed * raccoonDir;
+        const minX = 8;
+        const maxX = window.innerWidth - raccoonSize - 8;
+        if (raccoonX <= minX)  { raccoonDir =  1; raccoonX = minX; }
+        if (raccoonX >= maxX)  { raccoonDir = -1; raccoonX = maxX; }
+        widget.style.left = raccoonX + 'px';
+        // emoji faces right by default → flip when going left
+        robotBtn.style.transform = raccoonDir === -1 ? 'scaleX(-1)' : 'scaleX(1)';
+      }
+      requestAnimationFrame(runRaccoon);
+    }
+    runRaccoon();
+
+    window.addEventListener('resize', () => {
+      raccoonX = Math.min(raccoonX, window.innerWidth - raccoonSize - 8);
+    });
+
     function openChat() {
+      raccoonRunning = false;
       panel.classList.remove('hidden');
       bubble.style.display = 'none';
       input.focus();
     }
     function closeChat() {
       panel.classList.add('hidden');
+      raccoonRunning = true;
     }
 
     robotBtn.addEventListener('click', openChat);
