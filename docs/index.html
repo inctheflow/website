@@ -237,29 +237,53 @@
     }
 
     #chat-robot-btn {
-      width: 54px;
-      height: 54px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #7c6dfa, #9d6dfa);
-      border: none;
+      background: linear-gradient(135deg, #7c6dfa, #b06dfa);
+      border: 2.5px solid rgba(255,255,255,0.15);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
-      box-shadow: 0 4px 24px rgba(124,109,250,0.45);
+      font-size: 32px;
+      box-shadow: 0 4px 24px rgba(124,109,250,0.55), 0 0 0 0 rgba(124,109,250,0.4);
       transition: transform 0.2s, box-shadow 0.2s;
-      animation: robot-pulse 3s ease-in-out infinite;
+      animation: raccoon-bounce 2.4s ease-in-out infinite, raccoon-glow 2.4s ease-in-out infinite;
+      position: relative;
     }
     #chat-robot-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 30px rgba(124,109,250,0.6);
+      transform: scale(1.15) rotate(-8deg);
+      box-shadow: 0 8px 36px rgba(124,109,250,0.7);
       animation: none;
     }
-    @keyframes robot-pulse {
-      0%, 100% { box-shadow: 0 4px 24px rgba(124,109,250,0.45); }
-      50%       { box-shadow: 0 4px 32px rgba(124,109,250,0.75); }
+    #chat-robot-btn::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px dashed rgba(124,109,250,0.35);
+      animation: spin-ring 8s linear infinite;
     }
+    @keyframes raccoon-bounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25%       { transform: translateY(-6px) rotate(4deg); }
+      75%       { transform: translateY(-3px) rotate(-3deg); }
+    }
+    @keyframes raccoon-glow {
+      0%, 100% { box-shadow: 0 4px 24px rgba(124,109,250,0.55), 0 0 0 0 rgba(124,109,250,0.4); }
+      50%       { box-shadow: 0 4px 32px rgba(124,109,250,0.8), 0 0 20px 4px rgba(124,109,250,0.25); }
+    }
+    @keyframes spin-ring {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    #chat-bubble-text {
+      transition: opacity 0.4s ease;
+    }
+    #chat-bubble-text.fade-out { opacity: 0; }
+    #chat-bubble-text.fade-in  { opacity: 1; }
 
     #chat-panel {
       position: fixed;
@@ -600,8 +624,8 @@
 
   <!-- ── Chat Widget ── -->
   <div id="chat-widget">
-    <div id="chat-bubble">Ask something about Aditya? 💬</div>
-    <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🤖</button>
+    <div id="chat-bubble"><span id="chat-bubble-text">Ask something about Aditya? 👀</span></div>
+    <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
   </div>
 
   <div id="chat-panel" class="hidden">
@@ -651,14 +675,30 @@
     bubble.addEventListener('click', openChat);
     closeBtn.addEventListener('click', closeChat);
 
-    // Auto-hide bubble after 6s
-    setTimeout(() => {
-      if (panel.classList.contains('hidden')) {
-        bubble.style.opacity = '0';
-        bubble.style.transition = 'opacity 0.5s';
-        setTimeout(() => { bubble.style.display = 'none'; }, 500);
-      }
-    }, 6000);
+    // Rotating prompts
+    const prompts = [
+      "Ask something about Aditya? 👀",
+      "I know ALL his secrets 🦝",
+      "Where did Aditya grow up? 🌏",
+      "What has he built? 🔥",
+      "Psst... click me 👇",
+      "Is he open to work? 💼",
+      "Ask me anything! I don't bite 😄",
+      "What's Aditya's story? ✨",
+      "Curious? Come chat! 🤫",
+    ];
+    let promptIndex = 0;
+    const bubbleText = document.getElementById('chat-bubble-text');
+
+    setInterval(() => {
+      if (!panel.classList.contains('hidden') || bubble.style.display === 'none') return;
+      bubbleText.classList.add('fade-out');
+      setTimeout(() => {
+        promptIndex = (promptIndex + 1) % prompts.length;
+        bubbleText.textContent = prompts[promptIndex];
+        bubbleText.classList.remove('fade-out');
+      }, 400);
+    }, 3500);
 
     function appendMsg(role, text) {
       const el = document.createElement('div');
