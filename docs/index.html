@@ -237,10 +237,13 @@
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
 
+    #raccoon-bob {
+      animation: run-bob 0.35s ease-in-out infinite;
+      line-height: 1;
+    }
+    #raccoon-bob:hover { animation: none; }
+
     #chat-robot-btn {
-      width: auto;
-      height: auto;
-      border-radius: 0;
       background: none;
       border: none;
       cursor: pointer;
@@ -249,17 +252,15 @@
       padding: 0;
       display: block;
       filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
-      animation: run-bob 0.35s ease-in-out infinite;
-      transition: filter 0.2s;
+      transition: filter 0.2s, font-size 0.15s;
     }
     #chat-robot-btn:hover {
+      font-size: 48px;
       filter: drop-shadow(0 3px 14px rgba(124,109,250,0.8));
-      animation: none;
-      transform: scale(1.2);
     }
     @keyframes run-bob {
-      0%, 100% { transform: translateY(0) scaleY(1); }
-      50%       { transform: translateY(-6px) scaleY(0.93); }
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-7px); }
     }
 
     #chat-bubble-text {
@@ -608,7 +609,9 @@
   <!-- ── Chat Widget ── -->
   <div id="chat-widget">
     <div id="chat-bubble"><span id="chat-bubble-text">Ask something about Aditya? 👀</span></div>
-    <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
+    <div id="raccoon-bob">
+      <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
+    </div>
   </div>
 
   <div id="chat-panel" class="hidden">
@@ -661,7 +664,7 @@
         if (raccoonX >= maxX)  { raccoonDir = -1; raccoonX = maxX; }
         widget.style.left = raccoonX + 'px';
         // emoji faces right by default → flip when going left
-        robotBtn.style.transform = raccoonDir === -1 ? 'scaleX(-1)' : 'scaleX(1)';
+        robotBtn.style.transform = raccoonDir === 1 ? 'scaleX(-1)' : 'scaleX(1)';
       }
       requestAnimationFrame(runRaccoon);
     }
