@@ -187,14 +187,13 @@
     /* ── Chat Widget ── */
     #chat-widget {
       position: fixed;
-      bottom: 20px;
-      left: 0;
+      bottom: 24px;
+      right: 24px;
       z-index: 9999;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      width: fit-content;
+      align-items: flex-end;
+      gap: 8px;
     }
 
     #chat-bubble {
@@ -648,34 +647,7 @@
 
     const history = [];
 
-    // Raccoon running animation
-    const raccoonSize = 48;
-    let raccoonX = window.innerWidth - raccoonSize - 24;
-    let raccoonDir = -1; // -1 = left, 1 = right
-    const raccoonSpeed = 2;
-    let raccoonRunning = true;
-
-    function runRaccoon() {
-      if (raccoonRunning) {
-        raccoonX += raccoonSpeed * raccoonDir;
-        const minX = 8;
-        const maxX = window.innerWidth - raccoonSize - 8;
-        if (raccoonX <= minX)  { raccoonDir =  1; raccoonX = minX; }
-        if (raccoonX >= maxX)  { raccoonDir = -1; raccoonX = maxX; }
-        widget.style.left = raccoonX + 'px';
-        // emoji faces right by default → flip when going left
-        robotBtn.style.transform = raccoonDir === 1 ? 'scaleX(-1)' : 'scaleX(1)';
-      }
-      requestAnimationFrame(runRaccoon);
-    }
-    runRaccoon();
-
-    window.addEventListener('resize', () => {
-      raccoonX = Math.min(raccoonX, window.innerWidth - raccoonSize - 8);
-    });
-
     function openChat() {
-      raccoonRunning = false;
       panel.classList.remove('hidden');
       bubble.style.display = 'none';
       input.focus();
@@ -683,7 +655,6 @@
     function closeChat() {
       panel.classList.add('hidden');
       bubble.style.display = '';
-      raccoonRunning = true;
     }
 
     robotBtn.addEventListener('click', openChat);
