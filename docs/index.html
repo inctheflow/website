@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQMYJ1ZE81"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BQMYJ1ZE81');
-  </script>
-  <link rel="icon" type="image/x-icon" href="pngs/favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="pngs/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="pngs/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="pngs/apple-touch-icon.png" />
   <!-- SEO -->
 <meta name="description" content="Aditya Raj Poudel — CS student based in Baltimore, MD." />
 
@@ -193,7 +180,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 8px;
+      gap: 10px;
     }
 
     #chat-bubble {
@@ -236,37 +223,30 @@
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    #raccoon-bob {
-      animation: run-bob 0.35s ease-in-out infinite;
-      line-height: 1;
-    }
-    #raccoon-bob:hover { animation: none; }
-
     #chat-robot-btn {
-      background: none;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c6dfa, #9d6dfa);
       border: none;
       cursor: pointer;
-      font-size: 40px;
-      line-height: 1;
-      padding: 0;
-      display: block;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
-      transition: filter 0.2s, font-size 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 24px rgba(124,109,250,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: robot-pulse 3s ease-in-out infinite;
     }
     #chat-robot-btn:hover {
-      font-size: 48px;
-      filter: drop-shadow(0 3px 14px rgba(124,109,250,0.8));
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(124,109,250,0.6);
+      animation: none;
     }
-    @keyframes run-bob {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-7px); }
+    @keyframes robot-pulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(124,109,250,0.45); }
+      50%       { box-shadow: 0 4px 32px rgba(124,109,250,0.75); }
     }
-
-    #chat-bubble-text {
-      transition: opacity 0.4s ease;
-    }
-    #chat-bubble-text.fade-out { opacity: 0; }
-    #chat-bubble-text.fade-in  { opacity: 1; }
 
     #chat-panel {
       position: fixed;
@@ -607,23 +587,21 @@
 
   <!-- ── Chat Widget ── -->
   <div id="chat-widget">
-    <div id="chat-bubble"><span id="chat-bubble-text">Ask something about Aditya? 👀</span></div>
-    <div id="raccoon-bob">
-      <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
-    </div>
+    <div id="chat-bubble">Ask something about Aditya? 💬</div>
+    <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🤖</button>
   </div>
 
   <div id="chat-panel" class="hidden">
     <div id="chat-header">
       <span class="robot-sm">🤖</span>
       <div>
-        <div class="title">Ask about Aditya</div>
-        <div class="subtitle">Powered by Claude AI</div>
+        <div class="title">Racoon</div>
+        <div class="subtitle">Fed by Adi :)</div>
       </div>
       <button id="chat-close" aria-label="Close chat">✕</button>
     </div>
     <div id="chat-messages">
-      <div class="chat-msg assistant">Hey! I'm an AI that knows all about Aditya. Ask me anything — his projects, experience, background, anything!</div>
+      <div class="chat-msg assistant">Hey! I'm Racoon that knows all about Aditya. Ask me anything: his projects, experience, background, anything!</div>
     </div>
     <div id="chat-input-row">
       <textarea id="chat-input" placeholder="Ask something..." rows="1"></textarea>
@@ -634,7 +612,7 @@
   </div>
 
   <script>
-    const WORKER_URL = 'https://aditya-chat-proxy.adityapoudel.workers.dev';
+    const WORKER_URL = 'YOUR_WORKER_URL'; // e.g. https://aditya-chat-proxy.yourname.workers.dev
 
     const widget   = document.getElementById('chat-widget');
     const bubble   = document.getElementById('chat-bubble');
@@ -654,37 +632,20 @@
     }
     function closeChat() {
       panel.classList.add('hidden');
-      bubble.style.display = '';
     }
 
     robotBtn.addEventListener('click', openChat);
     bubble.addEventListener('click', openChat);
     closeBtn.addEventListener('click', closeChat);
 
-    // Rotating prompts
-    const prompts = [
-      "Ask something about Aditya? ",
-      "I know ALL his secrets ",
-      "Where did Aditya grow up? 🌏",
-      "What has he built? ",
-      "Is he open to work? ",
-      "Ask me anything! I don't bite ",
-      "What's Aditya's story? ",
-      "Curious? Come chat! ",
-      "Does Aditya like you? 👀",
-    ];
-    let promptIndex = 0;
-    const bubbleText = document.getElementById('chat-bubble-text');
-
-    setInterval(() => {
-      if (!panel.classList.contains('hidden') || bubble.style.display === 'none') return;
-      bubbleText.classList.add('fade-out');
-      setTimeout(() => {
-        promptIndex = (promptIndex + 1) % prompts.length;
-        bubbleText.textContent = prompts[promptIndex];
-        bubbleText.classList.remove('fade-out');
-      }, 400);
-    }, 3500);
+    // Auto-hide bubble after 6s
+    setTimeout(() => {
+      if (panel.classList.contains('hidden')) {
+        bubble.style.opacity = '0';
+        bubble.style.transition = 'opacity 0.5s';
+        setTimeout(() => { bubble.style.display = 'none'; }, 500);
+      }
+    }, 6000);
 
     function appendMsg(role, text) {
       const el = document.createElement('div');
