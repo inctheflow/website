@@ -839,6 +839,7 @@
       backdrop.classList.remove('hidden');
       bubble.style.display = 'none';
       widget.style.display = 'none';
+      if (window.innerWidth <= 600) document.body.style.overflow = 'hidden';
       lockPanelToViewport();
       input.focus();
     }
@@ -848,6 +849,7 @@
       panel.style.transform = '';
       bubble.style.display = '';
       widget.style.display = '';
+      document.body.style.overflow = '';
     }
 
     robotBtn.addEventListener('click', openChat);
