@@ -838,6 +838,7 @@
       panel.classList.remove('hidden');
       backdrop.classList.remove('hidden');
       bubble.style.display = 'none';
+      widget.style.display = 'none';
       lockPanelToViewport();
       input.focus();
     }
@@ -846,6 +847,7 @@
       backdrop.classList.add('hidden');
       panel.style.transform = '';
       bubble.style.display = '';
+      widget.style.display = '';
     }
 
     robotBtn.addEventListener('click', openChat);
