@@ -1380,16 +1380,20 @@
       var popup = document.getElementById('travel-popup');
       popup.classList.remove('hidden');
 
-      /* Desktop: anchor near pin using fixed viewport coords */
+      /* Desktop: appear above pin, clamped inside the globe container */
       if (window.innerWidth > 600) {
-        var rect = pinEl.getBoundingClientRect();
-        var pW = 215, pH = 270;
-        var left = rect.right + 12;
-        var top  = rect.top  - 10;
-        if (left + pW > window.innerWidth  - 10) left = rect.left - pW - 12;
-        if (left < 10) left = 10;
-        if (top  + pH > window.innerHeight - 10) top  = window.innerHeight - pH - 10;
-        if (top  < 10) top  = 10;
+        var rect      = pinEl.getBoundingClientRect();
+        var cRect     = document.getElementById('globe-container').getBoundingClientRect();
+        var pW = 210, pH = 260;
+        /* Center horizontally on pin, place above it */
+        var left = rect.left + rect.width / 2 - pW / 2;
+        var top  = rect.top  - pH - 10;
+        /* If it would go above the container top, flip below the pin instead */
+        if (top < cRect.top + 4) top = rect.bottom + 10;
+        /* Clamp horizontally within container */
+        left = Math.max(cRect.left + 4, Math.min(cRect.right - pW - 4, left));
+        /* Clamp vertically within container */
+        top  = Math.max(cRect.top  + 4, Math.min(cRect.bottom - pH - 4, top));
         popup.style.left   = left + 'px';
         popup.style.top    = top  + 'px';
         popup.style.bottom = '';
