@@ -1382,18 +1382,21 @@
 
       /* Desktop: appear above pin, clamped inside the globe container */
       if (window.innerWidth > 600) {
-        var rect      = pinEl.getBoundingClientRect();
-        var cRect     = document.getElementById('globe-container').getBoundingClientRect();
-        var pW = 210, pH = 260;
-        /* Center horizontally on pin, place above it */
-        var left = rect.left + rect.width / 2 - pW / 2;
+        /* Show offscreen first so we can measure the real rendered size */
+        popup.style.left = '-9999px';
+        popup.style.top  = '-9999px';
+        var pW = popup.offsetWidth;
+        var pH = popup.offsetHeight;
+        var rect  = pinEl.getBoundingClientRect();
+        var cRect = document.getElementById('globe-container').getBoundingClientRect();
+        /* Center on pin, place above it */
+        var left = rect.left + rect.width  / 2 - pW / 2;
         var top  = rect.top  - pH - 10;
-        /* If it would go above the container top, flip below the pin instead */
-        if (top < cRect.top + 4) top = rect.bottom + 10;
-        /* Clamp horizontally within container */
-        left = Math.max(cRect.left + 4, Math.min(cRect.right - pW - 4, left));
-        /* Clamp vertically within container */
-        top  = Math.max(cRect.top  + 4, Math.min(cRect.bottom - pH - 4, top));
+        /* Flip below if not enough room above */
+        if (top < cRect.top + 6) top = rect.bottom + 10;
+        /* Hard clamp to container bounds */
+        left = Math.max(cRect.left + 6, Math.min(cRect.right  - pW - 6, left));
+        top  = Math.max(cRect.top  + 6, Math.min(cRect.bottom - pH - 6, top));
         popup.style.left   = left + 'px';
         popup.style.top    = top  + 'px';
         popup.style.bottom = '';
