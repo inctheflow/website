@@ -1217,7 +1217,7 @@
         prevPt = {x:e.clientX,y:e.clientY};
         lastInteract = Date.now();
       });
-      window.addEventListener('mouseup', function() { dragging = false; });
+      window.addEventListener('mouseup', function() { dragging = false; lastInteract = Date.now(); });
 
       /* Touch */
       var t0 = null, initDist = null;
@@ -1248,7 +1248,7 @@
           initDist = d; lastInteract = Date.now();
         }
       }, {passive:false});
-      canvas.addEventListener('touchend', function() { dragging=false; t0=null; initDist=null; });
+      canvas.addEventListener('touchend', function() { dragging=false; t0=null; initDist=null; lastInteract=Date.now(); });
 
       /* Wheel zoom */
       canvas.addEventListener('wheel', function(e) {
@@ -1266,7 +1266,7 @@
 
     function animate() {
       requestAnimationFrame(animate);
-      var idle = !dragging && (Date.now() - lastInteract > 1500);
+      var idle = !dragging && (Date.now() - lastInteract > 3000);
       if (!dragging) {
         if (Math.abs(vel.x) > 0.00004 || Math.abs(vel.y) > 0.00004) {
           globeGroup.rotation.x = clampX(globeGroup.rotation.x + vel.x);
