@@ -1117,15 +1117,17 @@
       { name: 'Ramechhap',  country: 'Nepal', note: 'Hometown',        lat:  27.6588, lon:  86.0886, photo: 'ramechhap'  },
       { name: 'Kathmandu',  country: 'Nepal', note: 'Capital city',     lat:  27.7172, lon:  85.3240, photo: 'kathmandu'  },
       { name: 'Pokhara',    country: 'Nepal', note: 'City of lakes',    lat:  28.2096, lon:  83.9856, photo: 'pokhara'    },
+      { name: 'Ilam',       country: 'Nepal', note: 'Visited Ilam',     lat:  26.9125, lon:  87.9257, photo: 'ilam'       },
       { name: 'Seoul',     country: 'South Korea',     note: 'Visited Seoul 🇰🇷',          lat:  37.5665, lon: 126.9780, photo: 'seoul'         },
-      { name: 'Dallas',    country: 'USA',              note: 'Visited Dallas 🤠',          lat:  32.7767, lon: -96.7970, photo: 'dallas'        },
+      { name: 'Dallas',    country: 'USA',              note: 'Visited Dallas ',          lat:  32.7767, lon: -96.7970, photo: 'dallas'        },
       { name: 'Miami',     country: 'USA',              note: 'Visited Miami 🌴',           lat:  25.7617, lon: -80.1918, photo: 'miami'         },
       { name: 'New York',  country: 'USA',              note: 'Visited New York 🗽',        lat:  40.7128, lon: -74.0060, photo: 'newyork'       },
-      { name: 'Cleveland', country: 'USA',              note: 'Visited Cleveland',          lat:  41.4993, lon: -81.6944, photo: 'cleveland'     },
-      { name: 'Philadelphia', country: 'USA',           note: 'Visited Philadelphia 🔔',   lat:  39.9526, lon: -75.1652, photo: 'philadelphia'  },
-      { name: 'Atlantic City', country: 'USA',          note: 'Visited Atlantic City 🎰',  lat:  39.3643, lon: -74.4229, photo: 'atlanticcity'  },
-      { name: 'Baltimore', country: 'USA',              note: 'Current City 🏠',            lat:  39.2904, lon: -76.6122, photo: 'baltimore'     },
+      { name: 'Columbus', country: 'USA',              note: 'Visited Columbus',           lat:  39.9612, lon: -82.9988, photo: 'ohio'         },
+      { name: 'Philadelphia', country: 'USA',           note: 'Visited Philadelphia ',   lat:  39.9526, lon: -75.1652, photo: 'philadelphia'  },
+      { name: 'Atlantic City', country: 'USA',          note: 'Visited Atlantic City ',  lat:  39.3643, lon: -74.4229, photo: 'atlanticcity'  },
+      { name: 'Baltimore', country: 'USA',              note: 'Current City ',            lat:  39.2904, lon: -76.6122, photo: 'baltimore'     },
       { name: 'Virginia',       country: 'USA',           note: 'Visited Virginia',          lat:  36.8529, lon: -75.9780, photo: 'virginia'      },
+      { name: 'Watkins Glen', country: 'USA',             note: 'Visited Watkins Glen State Park 🌊', lat: 42.3773, lon: -76.8719, photo: 'glennstatepark' },
     ];
 
     var scene, camera, renderer, globeGroup, globeContainer;
@@ -1305,7 +1307,7 @@
       if (!W || !H) return;
       scene.updateMatrixWorld(true);
       var rotMat = new THREE.Matrix4().extractRotation(globeGroup.matrixWorld);
-      var CLUSTER_D = 26; /* px — pins closer than this merge into one cluster dot */
+      var CLUSTER_D = 8; /* px — pins closer than this merge into one cluster dot */
 
       /* 1. Project all visible pins to screen space */
       var projected = [];
