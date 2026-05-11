@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQMYJ1ZE81"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQMYJ1ZE81');
+  </script>
+  <link rel="icon" type="image/x-icon" href="pngs/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="pngs/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="pngs/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="pngs/apple-touch-icon.png" />
+
+  <!-- SEO -->
+  <meta name="description" content="Showcase — projects built by Aditya Raj Poudel." />
+  <meta property="og:title" content="Showcase — Aditya Raj Poudel" />
+  <meta property="og:description" content="Projects: dashboards, tools, and more." />
+  <meta property="og:image" content="https://adityapoudel.live/pngs/preview.png" />
+  <meta property="og:url" content="https://adityapoudel.live/showcase.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Showcase — Aditya Raj Poudel" />
+  <meta name="twitter:description" content="Projects: dashboards, tools, and more." />
+  <meta name="twitter:image" content="https://adityapoudel.live/pngs/preview.png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showcase — Aditya Raj Poudel</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            dm: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            bg: '#0d0f1e',
+            surface: '#13152a',
+            surface2: '#1a1d35',
+            accent: '#7c6dfa',
+            accent2: '#fa6d8f',
+            muted: '#7878a0',
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="text-gray-300 min-h-screen relative">
+
+  <!-- Floating Nav -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 nav-glass rounded-full px-2 py-1.5 flex gap-0.5" style="max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="skills.html" class="nav-link">S-Kills</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="showcase.html" class="nav-link active">Showcase</a>
+  </nav>
+
+  <main class="relative z-10 max-w-3xl mx-auto px-5 pt-28 pb-24 flex flex-col gap-6">
+
+    <section id="showcase" class="fade-up">
+      <p class="section-label mb-1">Showcase</p>
+      <h1 class="font-syne text-2xl font-bold text-white mb-1">Things I've Built</h1>
+      <div class="grad-line mt-2 mb-5"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger">
+
+        <a href="projects/homicide-dashboard.html"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/homicide.png" alt="Homicide Dashboard" class="proj-img" />
+          <div class="p-4">
+            <h2 class="font-syne font-bold text-white text-sm leading-snug">Automated Homicide Data Scraper &amp; Visualizer</h2>
+          </div>
+        </a>
+
+        <a href="projects/finad.html"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/FINAD.png" alt="FINAD" class="proj-img" />
+          <div class="p-4">
+            <h2 class="font-syne font-bold text-white text-sm">FINAD: Financial Analysis Dashboard</h2>
+          </div>
+        </a>
+
+        <a href="projects/coursemonitor.html"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/coursemonitor.png" alt="CourseMonitor" class="proj-img" />
+          <div class="p-4">
+            <h2 class="font-syne font-bold text-white text-sm">CourseMonitor</h2>
+          </div>
+        </a>
+
+        <a href="projects/subs.html"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/SUBS.png" alt="SUBS" class="proj-img" />
+          <div class="p-4">
+            <h2 class="font-syne font-bold text-white text-sm">SUBS</h2>
+          </div>
+        </a>
+
+        <a href="projects/lets-football.html"
+           class="project-card rounded-2xl overflow-hidden block">
+          <img src="pngs/letsfootball.png" alt="Let's Football" class="proj-img" />
+          <div class="p-4">
+            <div class="flex items-center justify-between gap-2">
+              <h2 class="font-syne font-bold text-white text-sm leading-snug">Let's Football</h2>
+              <span class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0" style="background:rgba(120,120,160,0.1);border:1px solid rgba(120,120,160,0.2);color:#7878a0">🖥️ Desktop only</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chat Widget -->
+  <div id="chat-widget">
+    <div id="chat-bubble"><span id="chat-bubble-text">Ask something about Aditya?</span></div>
+    <div id="raccoon-bob">
+      <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
+    </div>
+  </div>
+  <div id="chat-backdrop" class="hidden"></div>
+  <div id="chat-panel" class="hidden">
+    <div id="chat-header">
+      <span class="robot-sm">🦝</span>
+      <div>
+        <div class="title">Racoon</div>
+        <div class="subtitle">Fed by Adi :)</div>
+      </div>
+      <button id="chat-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chat-messages">
+      <div class="chat-msg assistant">Hey! I'm Racoon that knows all about Aditya. Ask me anything: his projects, experience, background, anything!</div>
+    </div>
+    <div id="chat-input-row">
+      <textarea id="chat-input" placeholder="Ask something..." rows="1"></textarea>
+      <button id="chat-send" aria-label="Send">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

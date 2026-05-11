@@ -13,26 +13,24 @@
   <link rel="icon" type="image/png" sizes="32x32" href="pngs/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="pngs/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="pngs/apple-touch-icon.png" />
+
   <!-- SEO -->
-<meta name="description" content="Aditya Raj Poudel — CS student based in Baltimore, MD." />
+  <meta name="description" content="Aditya Raj Poudel — CS student based in Baltimore, MD." />
+  <meta property="og:title" content="Aditya Raj Poudel" />
+  <meta property="og:description" content="CS student based in Baltimore, MD." />
+  <meta property="og:image" content="https://adityapoudel.live/pngs/preview.png" />
+  <meta property="og:url" content="https://adityapoudel.live" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aditya Raj Poudel" />
+  <meta name="twitter:description" content="CS student based in Baltimore, MD." />
+  <meta name="twitter:image" content="https://adityapoudel.live/pngs/preview.png" />
 
-<!-- Open Graph (WhatsApp, Discord, iMessage, LinkedIn) -->
-<meta property="og:title" content="Aditya Raj Poudel" />
-<meta property="og:description" content="CS student based in Baltimore, MD." />
-<meta property="og:image" content="https://adityapoudel.live/pngs/preview.png" />
-<meta property="og:url" content="https://adityapoudel.live" />
-<meta property="og:type" content="website" />
-
-<!-- Twitter/X -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Aditya Raj Poudel" />
-<meta name="twitter:description" content="CS student based in Baltimore, MD." />
-<meta name="twitter:image" content="https://adityapoudel.live/pngs/preview.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aditya Raj Poudel</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -53,648 +51,55 @@
       }
     }
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { background-color: #0d0f1e; font-family: 'DM Sans', sans-serif; }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 55% 45% at 10% 15%, rgba(124,109,250,0.11) 0%, transparent 70%),
-        radial-gradient(ellipse 45% 40% at 90% 80%, rgba(250,109,143,0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .nav-glass {
-      background: rgba(19, 21, 42, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(124, 109, 250, 0.15);
-    }
-
-    .card {
-      background: #13152a;
-      border: 1px solid rgba(124, 109, 250, 0.13);
-      box-shadow: 0 4px 32px rgba(0,0,0,0.35);
-      transition: border-color 0.3s ease, transform 0.3s ease;
-    }
-    .card:hover { border-color: rgba(124, 109, 250, 0.32); }
-
-    .project-card {
-      background: #13152a;
-      border: 1px solid rgba(124, 109, 250, 0.13);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(124, 109, 250, 0.42);
-      box-shadow: 0 16px 48px rgba(124, 109, 250, 0.14);
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.show { opacity: 1; transform: translateY(0); }
-
-    .stagger > *:nth-child(1) { transition-delay: 0.05s; }
-    .stagger > *:nth-child(2) { transition-delay: 0.15s; }
-    .stagger > *:nth-child(3) { transition-delay: 0.25s; }
-    .stagger > *:nth-child(4) { transition-delay: 0.35s; }
-    .stagger > *:nth-child(5) { transition-delay: 0.45s; }
-
-    .nav-link {
-      color: #7878a0;
-      font-family: 'Syne', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 999px;
-      transition: all 0.2s ease;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: #e0e0f5;
-      background: rgba(124, 109, 250, 0.16);
-    }
-
-    .tag {
-      display: inline-block;
-      background: rgba(124, 109, 250, 0.1);
-      border: 1px solid rgba(124, 109, 250, 0.22);
-      color: #a99dff;
-      font-size: 11.5px;
-      font-weight: 500;
-      padding: 3px 11px;
-      border-radius: 999px;
-    }
-
-    .grad-line {
-      height: 2px;
-      width: 36px;
-      background: linear-gradient(90deg, #7c6dfa, #fa6d8f);
-      border-radius: 2px;
-    }
-
-    .section-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #7c6dfa;
-    }
-
-    .btn-primary {
-      background: #7c6dfa;
-      color: white;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      padding: 10px 22px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      transition: opacity 0.2s, transform 0.2s;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-    }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-
-    .proj-img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid rgba(124, 109, 250, 0.13);
-    }
-
-    .social-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      opacity: 0.7;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .social-icon:hover { opacity: 1; transform: translateY(-2px); }
-
-    /* ── Skills Section ── */
-    .skills-cat-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #7878a0;
-      margin-bottom: 14px;
-    }
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-    .skill-icon {
-      width: 48px;
-      height: 48px;
-      transition: transform 0.2s ease;
-    }
-    .skill-icon:hover { transform: translateY(-3px); }
-    .skill-name {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      color: #7878a0;
-      text-align: center;
-    }
-
-    /* ── Chat Widget ── */
-    #chat-widget {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
-
-    #chat-bubble {
-      background: #13152a;
-      border: 1px solid rgba(124,109,250,0.35);
-      border-radius: 16px 16px 4px 16px;
-      padding: 9px 14px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      color: #c8c4f0;
-      white-space: nowrap;
-      box-shadow: 0 4px 20px rgba(124,109,250,0.18);
-      cursor: pointer;
-      animation: bubble-in 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
-      position: relative;
-    }
-    #chat-bubble::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      right: 18px;
-      width: 0; height: 0;
-      border-left: 7px solid transparent;
-      border-right: 0px solid transparent;
-      border-top: 8px solid rgba(124,109,250,0.35);
-    }
-    #chat-bubble::before {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      right: 19px;
-      width: 0; height: 0;
-      border-left: 6px solid transparent;
-      border-right: 0px solid transparent;
-      border-top: 7px solid #13152a;
-      z-index: 1;
-    }
-    @keyframes bubble-in {
-      from { opacity: 0; transform: scale(0.7) translateY(10px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    #raccoon-bob {
-      animation: run-bob 0.35s ease-in-out infinite;
-      line-height: 1;
-    }
-    #raccoon-bob:hover { animation: none; }
-
-    #chat-robot-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 40px;
-      line-height: 1;
-      padding: 0;
-      display: block;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
-      transition: filter 0.2s, font-size 0.15s;
-    }
-    #chat-robot-btn:hover {
-      font-size: 48px;
-      filter: drop-shadow(0 3px 14px rgba(124,109,250,0.8));
-    }
-    @keyframes run-bob {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-7px); }
-    }
-
-    #chat-bubble-text {
-      transition: opacity 0.4s ease;
-    }
-    #chat-bubble-text.fade-out { opacity: 0; }
-    #chat-bubble-text.fade-in  { opacity: 1; }
-
-    #chat-panel {
-      position: fixed;
-      bottom: 90px;
-      right: 24px;
-      width: 340px;
-      max-width: calc(100vw - 32px);
-      height: 460px;
-      max-height: calc(100vh - 120px);
-      background: #13152a;
-      border: 1px solid rgba(124,109,250,0.25);
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 16px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,109,250,0.1);
-      z-index: 9998;
-      overflow: hidden;
-      animation: panel-in 0.25s cubic-bezier(0.34,1.4,0.64,1) both;
-    }
-    #chat-panel.hidden {
-      display: none;
-    }
-    @keyframes panel-in {
-      from { opacity: 0; transform: scale(0.92) translateY(16px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    #chat-header {
-      padding: 14px 16px;
-      background: #1a1d35;
-      border-bottom: 1px solid rgba(124,109,250,0.15);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    #chat-header span.robot-sm { font-size: 20px; }
-    #chat-header .title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      color: #e0e0f5;
-      flex: 1;
-    }
-    #chat-header .subtitle {
-      font-size: 11px;
-      color: #7878a0;
-    }
-    #chat-close {
-      background: none;
-      border: none;
-      color: #7878a0;
-      cursor: pointer;
-      font-size: 18px;
-      padding: 2px 6px;
-      border-radius: 6px;
-      transition: color 0.2s, background 0.2s;
-      line-height: 1;
-    }
-    #chat-close:hover { color: #e0e0f5; background: rgba(124,109,250,0.15); }
-
-    #chat-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(124,109,250,0.2) transparent;
-    }
-
-    .chat-msg {
-      max-width: 82%;
-      font-size: 13px;
-      line-height: 1.5;
-      padding: 9px 13px;
-      border-radius: 14px;
-      word-break: break-word;
-    }
-    .chat-msg.user {
-      align-self: flex-end;
-      background: #7c6dfa;
-      color: #fff;
-      border-bottom-right-radius: 4px;
-    }
-    .chat-msg.assistant {
-      align-self: flex-start;
-      background: #1a1d35;
-      color: #c8c4f0;
-      border: 1px solid rgba(124,109,250,0.15);
-      border-bottom-left-radius: 4px;
-    }
-    .chat-msg.typing {
-      color: #7878a0;
-      font-style: italic;
-    }
-
-    #chat-input-row {
-      padding: 12px;
-      border-top: 1px solid rgba(124,109,250,0.12);
-      display: flex;
-      gap: 8px;
-      flex-shrink: 0;
-      background: #13152a;
-    }
-    #chat-input {
-      flex: 1;
-      background: #1a1d35;
-      border: 1px solid rgba(124,109,250,0.2);
-      border-radius: 12px;
-      padding: 9px 13px;
-      font-size: 13px;
-      color: #e0e0f5;
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
-      resize: none;
-    }
-    #chat-input:focus { border-color: rgba(124,109,250,0.5); }
-    #chat-send {
-      background: #7c6dfa;
-      border: none;
-      border-radius: 12px;
-      width: 38px;
-      height: 38px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.2s, transform 0.2s;
-      flex-shrink: 0;
-      align-self: flex-end;
-    }
-    #chat-send:hover { opacity: 0.85; transform: scale(1.05); }
-    #chat-send:disabled { opacity: 0.4; cursor: default; transform: none; }
-    #chat-send svg { width: 16px; height: 16px; fill: white; }
-
-    /* ── Mobile Chat Panel ── */
-    @media (max-width: 600px) {
-      #chat-widget {
-        bottom: 16px;
-        right: 16px;
-      }
-
-      #chat-panel {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        max-width: 100%;
-        height: 72dvh;
-        max-height: 72dvh;
-        border-radius: 20px 20px 0 0;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-        transform-origin: bottom center;
-        will-change: transform;
-        animation: panel-in-mobile 0.28s cubic-bezier(0.34,1.3,0.64,1) both;
-      }
-
-      #chat-input-row {
-        padding-bottom: max(12px, env(safe-area-inset-bottom, 0px));
-      }
-
-      #chat-backdrop {
-        display: block;
-      }
-
-      @keyframes panel-in-mobile {
-        from { opacity: 0; transform: translateY(60px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-    }
-
-    #chat-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 9997;
-      animation: fade-in 0.2s ease both;
-    }
-    #chat-backdrop.hidden { display: none !important; }
-    @keyframes fade-in {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* ── Globe / Travel Section ── */
-    #globe-container {
-      position: relative;
-      width: 100%;
-      height: 300px;
-      border-radius: 12px;
-      background: radial-gradient(ellipse at center, #080816 0%, #030309 100%);
-      cursor: grab;
-      overflow: hidden;
-    }
-    @media (min-width: 640px) { #globe-container { height: 420px; } }
-    #globe-container:active { cursor: grabbing; }
-    #globe-canvas { display: block; width: 100%; height: 100%; }
-
-    .globe-pin {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #7c6dfa;
-      box-shadow: 0 0 0 2px rgba(124,109,250,0.22), 0 0 7px rgba(124,109,250,0.55);
-      transform: translate(-50%, -50%);
-      cursor: pointer;
-      z-index: 3;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .globe-pin:hover {
-      transform: translate(-50%, -50%) scale(1.5);
-      box-shadow: 0 0 0 3px rgba(124,109,250,0.35), 0 0 12px rgba(124,109,250,0.8);
-    }
-    /* Cluster: shows a count badge */
-    .globe-pin-cluster {
-      width: 22px;
-      height: 22px;
-      background: #7c6dfa;
-      box-shadow: 0 0 0 2px rgba(124,109,250,0.3), 0 0 10px rgba(124,109,250,0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .globe-pin-cluster:hover {
-      transform: translate(-50%, -50%) scale(1.2);
-    }
-
-    /* Popup – always fixed so container overflow:hidden never clips it */
-    #travel-popup {
-      position: fixed;
-      width: 210px;
-      background: #13152a;
-      border: 1px solid rgba(124,109,250,0.28);
-      border-radius: 14px;
-      box-shadow: 0 8px 36px rgba(0,0,0,0.55);
-      z-index: 200;
-      overflow: hidden;
-    }
-    #travel-popup.hidden { display: none; }
-
-    .popup-photo-wrap {
-      width: 100%;
-      height: 108px;
-      background: #1a1d35;
-      position: relative;
-      overflow: hidden;
-    }
-    #popup-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-    }
-    #popup-placeholder {
-      width: 100%;
-      height: 100%;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #7878a0;
-      letter-spacing: 0.05em;
-    }
-    .popup-body { padding: 10px 12px 13px; }
-    #popup-city {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      color: #e0e0f5;
-      line-height: 1.2;
-      margin-bottom: 2px;
-    }
-    #popup-country {
-      font-size: 11px;
-      color: #7c6dfa;
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-family: 'Syne', sans-serif;
-    }
-    #popup-note { font-size: 11.5px; color: #7878a0; line-height: 1.4; }
-
-    #popup-close-btn {
-      position: absolute;
-      top: 7px;
-      right: 8px;
-      background: rgba(13,15,30,0.75);
-      border: none;
-      color: #c8c4f0;
-      font-size: 11px;
-      cursor: pointer;
-      z-index: 21;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      line-height: 1;
-    }
-    #popup-close-btn:hover { background: rgba(124,109,250,0.45); }
-
-    /* Mobile: bottom sheet layout */
-    @media (max-width: 600px) {
-      #travel-popup {
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        top: auto !important;
-        width: 100% !important;
-        border-radius: 20px 20px 0 0;
-        border-bottom: none;
-        border-left: none;
-        border-right: none;
-      }
-      .popup-photo-wrap { height: 160px; }
-      .popup-body { padding: 14px 18px 28px; }
-      #popup-city { font-size: 16px; }
-    }
-  </style>
+  <link rel="stylesheet" href="shared.css">
 </head>
 <body class="text-gray-300 min-h-screen relative">
 
   <!-- Floating Nav -->
   <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 nav-glass rounded-full px-2 py-1.5 flex gap-0.5" style="max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
-    <a href="#home" class="nav-link" style="white-space:nowrap">Home</a>
-    <a href="#about" class="nav-link" style="white-space:nowrap">About</a>
-    <a href="#travel" class="nav-link" style="white-space:nowrap">Travel</a>
-    <a href="#skills" class="nav-link" style="white-space:nowrap">S-Kills</a>
-    <a href="#experience" class="nav-link" style="white-space:nowrap">Experience</a>
-    <a href="#showcase" class="nav-link" style="white-space:nowrap">Showcase</a>
-    <a href="#contact" class="nav-link" style="white-space:nowrap">Contact</a>
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="skills.html" class="nav-link">S-Kills</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="showcase.html" class="nav-link">Showcase</a>
   </nav>
 
   <main class="relative z-10 max-w-3xl mx-auto px-5 pt-28 pb-24 flex flex-col gap-6">
 
     <!-- Hero -->
-<section id="home" class="fade-up">
-  <div class="card rounded-2xl p-6 sm:p-9">
-    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-      
-      <!-- Text -->
-      <div class="flex-1 min-w-0">
-        <p class="section-label mb-3">Portfolio</p>
-        <h1 class="font-syne text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-1">
-          Aditya Raj Poudel
-        </h1>
-        <p class="text-sm mb-5" style="color:#7878a0"></p>
-        <div class="grad-line mb-5"></div>
-        <p class="font-syne text-lg font-semibold text-gray-200 leading-relaxed">
-          "A small dose, not of genius, but of an
-          <span style="color:#7c6dfa">imaginative freedom</span>
-          which in a larger dose would be insanity."
-        </p>
-      </div>
-
-      <!-- Photo -->
-      <div class="flex-shrink-0">
-        <img src="pngs/preview.png" alt="Aditya Raj Poudel"
-          class="w-32 h-32 rounded-2xl object-cover"
-          style="border: 2px solid rgba(124,109,250,0.25)" />
-      </div>
-
-    </div>
-  </div>
-</section>
-
-    <!-- About -->
-    <section id="about" class="fade-up">
+    <section id="home" class="fade-up">
       <div class="card rounded-2xl p-6 sm:p-9">
-        <p class="section-label mb-2">About Me</p>
-        <h2 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Still figuring it out — and that's okay.</h2>
-        <div class="grad-line mt-3 mb-5"></div>
-        <p class="leading-relaxed mb-3" style="color:#7878a0">
-          Hi, I'm Aditya. Currently living in Baltimore, MD, pursuing a bachelor's in Computer Science — driven by a passion for technology, mathematics, and problem-solving.
-        </p>
-        <p class="leading-relaxed mb-5" style="color:#7878a0">
-          Born and raised in the serene hills of Nepal, I moved to the USA in the fall of 2023.
-        </p>
+        <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+
+          <!-- Text -->
+          <div class="flex-1 min-w-0">
+            <p class="section-label mb-3">Portfolio</p>
+            <h1 class="font-syne text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-1">
+              Aditya Raj Poudel
+            </h1>
+            <p class="text-sm mb-5" style="color:#7878a0"></p>
+            <div class="grad-line mb-5"></div>
+            <p class="font-syne text-lg font-semibold text-gray-200 leading-relaxed">
+              "A small dose, not of genius, but of an
+              <span style="color:#7c6dfa">imaginative freedom</span>
+              which in a larger dose would be insanity."
+            </p>
+          </div>
+
+          <!-- Photo -->
+          <div class="flex-shrink-0">
+            <img src="pngs/preview.png" alt="Aditya Raj Poudel"
+              class="w-32 h-32 rounded-2xl object-cover"
+              style="border: 2px solid rgba(124,109,250,0.25)" />
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- Travel Globe -->
+    <!-- Places I've Been -->
     <section id="travel" class="fade-up">
       <div class="card rounded-2xl p-6 sm:p-9">
         <p class="section-label mb-2">Places I've Been</p>
@@ -705,7 +110,6 @@
         </p>
         <div id="globe-container">
           <canvas id="globe-canvas"></canvas>
-          <!-- pins injected by JS -->
           <div id="travel-popup" class="hidden">
             <button id="popup-close-btn" aria-label="Close">✕</button>
             <div class="popup-photo-wrap">
@@ -719,170 +123,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="fade-up">
-      <div class="card rounded-2xl p-6 sm:p-9">
-        <p class="section-label mb-2">Work Experience</p>
-        <div class="flex items-start justify-between gap-3 flex-wrap mb-1">
-          <h2 class="font-syne text-xl font-bold text-white">Student Success Center — CCBC Essex</h2>
-          <span class="text-xs px-3 py-1 rounded-full border whitespace-nowrap" style="color:#7878a0; background:#1a1d35; border-color:rgba(255,255,255,0.06)">May 2024 – Dec 2025</span>
-        </div>
-        <div class="grad-line mt-3 mb-5"></div>
-        <p class="leading-relaxed mb-4" style="color:#7878a0">
-          Worked part-time as a tutor, helping fellow students with Mathematics and CSIT problems. Earned my CLRA Level 2 certification during this role.
-        </p>
-        <img src="pngs/experience1.png" alt="Student Success Center"
-          class="rounded-xl w-full max-w-sm" style="border: 1px solid rgba(124,109,250,0.12)" />
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="fade-up">
-      <div class="card rounded-2xl p-6 sm:p-9">
-        <p class="section-label mb-2">S-Kills</p>
-        <h2 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">What I Work With</h2>
-        <div class="grad-line mt-3 mb-7"></div>
-
-        <!-- Languages -->
-        <p class="skills-cat-label">Languages</p>
-        <div class="flex flex-wrap gap-5 mb-8">
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=python" alt="Python" class="skill-icon" />
-            <span class="skill-name">Python</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=java" alt="Java" class="skill-icon" />
-            <span class="skill-name">Java</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=c" alt="C" class="skill-icon" />
-            <span class="skill-name">C</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=bash" alt="Bash" class="skill-icon" />
-            <span class="skill-name">Bash</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=r" alt="R" class="skill-icon" />
-            <span class="skill-name">R</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=rust" alt="Rust" class="skill-icon" />
-            <span class="skill-name">Rust</span>
-          </div>
-        </div>
-
-        <!-- AI / ML -->
-        <p class="skills-cat-label">AI / ML</p>
-        <div class="flex flex-wrap gap-5 mb-8">
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn" class="skill-icon" />
-            <span class="skill-name">scikit-learn</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon" />
-            <span class="skill-name">NumPy</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-icon" />
-            <span class="skill-name">Pandas</span>
-          </div>
-        </div>
-
-        <!-- Tools -->
-        <p class="skills-cat-label">Tools</p>
-        <div class="flex flex-wrap gap-5 mb-8">
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=git" alt="Git" class="skill-icon" />
-            <span class="skill-name">Git</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=github" alt="GitHub" class="skill-icon" />
-            <span class="skill-name">GitHub</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=sqlite" alt="SQLite" class="skill-icon" />
-            <span class="skill-name">SQLite</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=r" alt="R (Shiny)" class="skill-icon" />
-            <span class="skill-name">R (Shiny)</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" class="skill-icon" />
-            <span class="skill-name">VS Code</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://skillicons.dev/icons?i=postman" alt="REST API" class="skill-icon" />
-            <span class="skill-name">REST API</span>
-          </div>
-        </div>
-
-        <!-- Concepts -->
-        <p class="skills-cat-label">Concepts</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">Data Structures &amp; Algorithms</span>
-          <span class="tag">OOP</span>
-          <span class="tag">Web Scraping</span>
-          <span class="tag">Networking</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Showcase -->
-    <section id="showcase" class="fade-up">
-      <p class="section-label mb-1">Showcase</p>
-      <h2 class="font-syne text-2xl font-bold text-white mb-1">Things I've Built</h2>
-      <div class="grad-line mt-2 mb-5"></div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger">
-
-        <a href="projects/homicide-dashboard.html"
-           class="project-card rounded-2xl overflow-hidden block">
-          <img src="pngs/homicide.png" alt="Homicide Dashboard" class="proj-img" />
-          <div class="p-4">
-            <h3 class="font-syne font-bold text-white text-sm leading-snug">Automated Homicide Data Scraper & Visualizer</h3>
-          </div>
-        </a>
-
-        <a href="projects/finad.html"
-           class="project-card rounded-2xl overflow-hidden block">
-          <img src="pngs/FINAD.png" alt="FINAD" class="proj-img" />
-          <div class="p-4">
-            <h3 class="font-syne font-bold text-white text-sm">FINAD: Financial Analysis Dashboard</h3>
-          </div>
-        </a>
-
-        <a href="projects/coursemonitor.html"
-           class="project-card rounded-2xl overflow-hidden block">
-          <img src="pngs/coursemonitor.png" alt="CourseMonitor" class="proj-img" />
-          <div class="p-4">
-            <h3 class="font-syne font-bold text-white text-sm">CourseMonitor</h3>
-          </div>
-        </a>
-
-        <a href="projects/subs.html"
-           class="project-card rounded-2xl overflow-hidden block">
-          <img src="pngs/SUBS.png" alt="SUBS" class="proj-img" />
-          <div class="p-4">
-            <h3 class="font-syne font-bold text-white text-sm">SUBS</h3>
-          </div>
-        </a>
-
-        <a href="projects/lets-football.html"
-           class="project-card rounded-2xl overflow-hidden block">
-          <img src="pngs/letsfootball.png" alt="Let's Football" class="proj-img" />
-          <div class="p-4">
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-syne font-bold text-white text-sm leading-snug">Let's Football</h3>
-              <span class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0" style="background:rgba(120,120,160,0.1);border:1px solid rgba(120,120,160,0.2);color:#7878a0">🖥️ Desktop only</span>
-            </div>
-          </div>
-        </a>
-
       </div>
     </section>
 
@@ -919,43 +159,18 @@
           <button type="submit" class="btn-primary mt-3">Send Anonymously</button>
           <p id="anon-status" class="mt-3 text-sm" style="color:#7c6dfa;display:none;"></p>
         </form>
-        <script>
-          document.getElementById('anon-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const status = document.getElementById('anon-status');
-            const btn = this.querySelector('button[type=submit]');
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            const res = await fetch('https://api.web3forms.com/submit', {
-              method: 'POST',
-              body: new FormData(this)
-            });
-            const data = await res.json();
-            status.style.display = 'block';
-            if (data.success) {
-              status.textContent = 'Message sent!';
-              this.reset();
-            } else {
-              status.style.color = '#f87171';
-              status.textContent = 'Something went wrong. Please try again.';
-            }
-            btn.disabled = false;
-            btn.textContent = 'Send Anonymously';
-          });
-        </script>
       </div>
     </section>
 
   </main>
 
-  <!-- ── Chat Widget ── -->
+  <!-- Chat Widget -->
   <div id="chat-widget">
     <div id="chat-bubble"><span id="chat-bubble-text">Ask something about Aditya?</span></div>
     <div id="raccoon-bob">
       <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
     </div>
   </div>
-
   <div id="chat-backdrop" class="hidden"></div>
   <div id="chat-panel" class="hidden">
     <div id="chat-header">
@@ -977,134 +192,31 @@
     </div>
   </div>
 
+  <script src="chat.js"></script>
+
   <script>
-    const WORKER_URL = 'https://aditya-chat-proxy.adityapoudel.workers.dev';
-
-    const widget   = document.getElementById('chat-widget');
-    const bubble   = document.getElementById('chat-bubble');
-    const robotBtn = document.getElementById('chat-robot-btn');
-    const panel    = document.getElementById('chat-panel');
-    const backdrop = document.getElementById('chat-backdrop');
-    const closeBtn = document.getElementById('chat-close');
-    const messages = document.getElementById('chat-messages');
-    const input    = document.getElementById('chat-input');
-    const sendBtn  = document.getElementById('chat-send');
-
-    const history = [];
-
-    // Mobile: lock panel to visual viewport so keyboard doesn't move it
-    function lockPanelToViewport() {
-      if (window.innerWidth > 600) return;
-      const vv = window.visualViewport;
-      if (!vv) return;
-      const offsetY = window.innerHeight - (vv.offsetTop + vv.height);
-      panel.style.transform = `translateY(-${offsetY}px)`;
-    }
-
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', () => {
-        if (!panel.classList.contains('hidden')) lockPanelToViewport();
+    // Anonymous form
+    document.getElementById('anon-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const status = document.getElementById('anon-status');
+      const btn = this.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(this)
       });
-      window.visualViewport.addEventListener('scroll', () => {
-        if (!panel.classList.contains('hidden')) lockPanelToViewport();
-      });
-    }
-
-    function openChat() {
-      panel.classList.remove('hidden');
-      backdrop.classList.remove('hidden');
-      bubble.style.display = 'none';
-      widget.style.display = 'none';
-      if (window.innerWidth <= 600) document.body.style.overflow = 'hidden';
-      lockPanelToViewport();
-      input.focus();
-    }
-    function closeChat() {
-      panel.classList.add('hidden');
-      backdrop.classList.add('hidden');
-      panel.style.transform = '';
-      bubble.style.display = '';
-      widget.style.display = '';
-      document.body.style.overflow = '';
-    }
-
-    robotBtn.addEventListener('click', openChat);
-    bubble.addEventListener('click', openChat);
-    closeBtn.addEventListener('click', closeChat);
-    backdrop.addEventListener('click', closeChat);
-
-    // Rotating prompts
-    const prompts = [
-      "Ask something about Aditya?",
-      "Where did Aditya grow up?",
-      "What has he built?",
-      "Talk with Racoon about Aditya :)",
-    ];
-    let promptIndex = 0;
-    const bubbleText = document.getElementById('chat-bubble-text');
-
-    setInterval(() => {
-      if (!panel.classList.contains('hidden') || bubble.style.display === 'none') return;
-      bubbleText.classList.add('fade-out');
-      setTimeout(() => {
-        promptIndex = (promptIndex + 1) % prompts.length;
-        bubbleText.textContent = prompts[promptIndex];
-        bubbleText.classList.remove('fade-out');
-      }, 400);
-    }, 3500);
-
-    function appendMsg(role, text) {
-      const el = document.createElement('div');
-      el.className = `chat-msg ${role}`;
-      el.textContent = text;
-      messages.appendChild(el);
-      messages.scrollTop = messages.scrollHeight;
-      return el;
-    }
-
-    async function sendMessage() {
-      const text = input.value.trim();
-      if (!text || sendBtn.disabled) return;
-
-      input.value = '';
-      input.style.height = 'auto';
-      appendMsg('user', text);
-      history.push({ role: 'user', content: text });
-
-      sendBtn.disabled = true;
-      const typing = appendMsg('assistant', 'Thinking…');
-      typing.classList.add('typing');
-
-      try {
-        const res = await fetch(WORKER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: history }),
-        });
-        const data = await res.json();
-        const reply = data?.content?.[0]?.text || 'Sorry, something went wrong.';
-        typing.textContent = reply;
-        typing.classList.remove('typing');
-        history.push({ role: 'assistant', content: reply });
-      } catch {
-        typing.textContent = 'Network error — please try again.';
-        typing.classList.remove('typing');
-        history.pop();
+      const data = await res.json();
+      status.style.display = 'block';
+      if (data.success) {
+        status.textContent = 'Message sent!';
+        this.reset();
+      } else {
+        status.style.color = '#f87171';
+        status.textContent = 'Something went wrong. Please try again.';
       }
-
-      sendBtn.disabled = false;
-      input.focus();
-    }
-
-    sendBtn.addEventListener('click', sendMessage);
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-    });
-
-    // Auto-resize textarea
-    input.addEventListener('input', () => {
-      input.style.height = 'auto';
-      input.style.height = Math.min(input.scrollHeight, 96) + 'px';
+      btn.disabled = false;
+      btn.textContent = 'Send Anonymously';
     });
   </script>
 
@@ -1114,20 +226,20 @@
     var RADIUS = 1, AUTO_SPEED = 0.0007, DECAY = 0.93;
 
     var locations = [
-      { name: 'Ramechhap',  country: 'Nepal', note: 'Hometown',        lat:  27.6588, lon:  86.0886, photo: 'ramechhap'  },
-      { name: 'Kathmandu',  country: 'Nepal', note: 'Capital city',     lat:  27.7172, lon:  85.3240, photo: 'kathmandu'  },
-      { name: 'Pokhara',    country: 'Nepal', note: 'City of lakes',    lat:  28.2096, lon:  83.9856, photo: 'pokhara'    },
-      { name: 'Ilam',       country: 'Nepal', note: 'Visited Ilam',     lat:  26.9125, lon:  87.9257, photo: 'ilam'       },
-      { name: 'Seoul',     country: 'South Korea',     note: 'Visited Seoul 🇰🇷',          lat:  37.5665, lon: 126.9780, photo: 'seoul'         },
-      { name: 'Dallas',    country: 'USA',              note: 'Visited Dallas ',          lat:  32.7767, lon: -96.7970, photo: 'dallas'        },
-      { name: 'Miami',     country: 'USA',              note: 'Visited Miami 🌴',           lat:  25.7617, lon: -80.1918, photo: 'miami'         },
-      { name: 'New York',  country: 'USA',              note: 'Visited New York 🗽',        lat:  40.7128, lon: -74.0060, photo: 'newyork'       },
-      { name: 'Columbus', country: 'USA',              note: 'Visited Columbus',           lat:  39.9612, lon: -82.9988, photo: 'ohio'         },
-      { name: 'Philadelphia', country: 'USA',           note: 'Visited Philadelphia ',   lat:  39.9526, lon: -75.1652, photo: 'philadelphia'  },
-      { name: 'Atlantic City', country: 'USA',          note: 'Visited Atlantic City ',  lat:  39.3643, lon: -74.4229, photo: 'atlanticcity'  },
-      { name: 'Baltimore', country: 'USA',              note: 'Current City ',            lat:  39.2904, lon: -76.6122, photo: 'baltimore'     },
-      { name: 'Virginia',       country: 'USA',           note: 'Visited Virginia',          lat:  36.8529, lon: -75.9780, photo: 'virginia'      },
-      { name: 'Watkins Glen', country: 'USA',             note: 'Visited Watkins Glen State Park 🌊', lat: 42.3773, lon: -76.8719, photo: 'glennstatepark' },
+      { name: 'Ramechhap',     country: 'Nepal',       note: 'Hometown',                                   lat:  27.6588, lon:  86.0886, photo: 'ramechhap'     },
+      { name: 'Kathmandu',     country: 'Nepal',       note: 'Capital city',                               lat:  27.7172, lon:  85.3240, photo: 'kathmandu'     },
+      { name: 'Pokhara',       country: 'Nepal',       note: 'City of lakes',                              lat:  28.2096, lon:  83.9856, photo: 'pokhara'       },
+      { name: 'Ilam',          country: 'Nepal',       note: 'Visited Ilam',                               lat:  26.9125, lon:  87.9257, photo: 'ilam'          },
+      { name: 'Seoul',         country: 'South Korea', note: 'Visited Seoul 🇰🇷',                           lat:  37.5665, lon: 126.9780, photo: 'seoul'         },
+      { name: 'Dallas',        country: 'USA',         note: 'Visited Dallas',                             lat:  32.7767, lon: -96.7970, photo: 'dallas'        },
+      { name: 'Miami',         country: 'USA',         note: 'Visited Miami 🌴',                           lat:  25.7617, lon: -80.1918, photo: 'miami'         },
+      { name: 'New York',      country: 'USA',         note: 'Visited New York 🗽',                        lat:  40.7128, lon: -74.0060, photo: 'newyork'       },
+      { name: 'Columbus',      country: 'USA',         note: 'Visited Columbus',                           lat:  39.9612, lon: -82.9988, photo: 'ohio'          },
+      { name: 'Philadelphia',  country: 'USA',         note: 'Visited Philadelphia',                       lat:  39.9526, lon: -75.1652, photo: 'philadelphia'  },
+      { name: 'Atlantic City', country: 'USA',         note: 'Visited Atlantic City',                      lat:  39.3643, lon: -74.4229, photo: 'atlanticcity'  },
+      { name: 'Baltimore',     country: 'USA',         note: 'Current City',                               lat:  39.2904, lon: -76.6122, photo: 'baltimore'     },
+      { name: 'Virginia',      country: 'USA',         note: 'Visited Virginia',                           lat:  36.8529, lon: -75.9780, photo: 'virginia'      },
+      { name: 'Watkins Glen',  country: 'USA',         note: 'Visited Watkins Glen State Park 🌊',         lat:  42.3773, lon: -76.8719, photo: 'glennstatepark'},
     ];
 
     var scene, camera, renderer, globeGroup, globeContainer;
@@ -1137,7 +249,7 @@
     var initialized = false;
 
     function ll2v(lat, lon, r) {
-      var phi = (90 - lat) * Math.PI / 180;
+      var phi   = (90 - lat) * Math.PI / 180;
       var theta = (lon + 180) * Math.PI / 180;
       return new THREE.Vector3(
         -r * Math.sin(phi) * Math.cos(theta),
@@ -1159,32 +271,27 @@
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000, 0);
 
-      scene = new THREE.Scene();
-
+      scene  = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
       camera.position.z = 2.65;
 
       globeGroup = new THREE.Group();
       scene.add(globeGroup);
 
-      var loader = new THREE.TextureLoader();
-      /* Night-lights texture: dark oceans, glowing cities — perfect contrast */
+      var loader   = new THREE.TextureLoader();
       var earthTex = loader.load('https://unpkg.com/three-globe/example/img/earth-night.jpg');
-      /* MeshBasicMaterial = unlit; texture displays exactly as stored, no light wash */
-      var mat = new THREE.MeshBasicMaterial({ map: earthTex });
+      var mat      = new THREE.MeshBasicMaterial({ map: earthTex });
       globeGroup.add(new THREE.Mesh(new THREE.SphereGeometry(RADIUS, 64, 64), mat));
 
-      /* Subtle atmosphere rim – kept small so it doesn't overpower */
       var atmMat = new THREE.MeshPhongMaterial({
         color: 0x7c6dfa, transparent: true, opacity: 0.06, side: THREE.BackSide
       });
-      scene.add(new THREE.AmbientLight(0xffffff, 0.15)); /* only needed for atmosphere sphere */
+      scene.add(new THREE.AmbientLight(0xffffff, 0.15));
       var dl = new THREE.DirectionalLight(0xaaaaff, 0.35);
       dl.position.set(5, 3, 5);
       scene.add(dl);
       globeGroup.add(new THREE.Mesh(new THREE.SphereGeometry(RADIUS * 1.045, 32, 32), atmMat));
 
-      /* Start facing the Atlantic (shows both Nepal and USA) */
       globeGroup.rotation.y = -1.1;
 
       globeContainer = container;
@@ -1203,7 +310,6 @@
     }
 
     function addEvents(canvas, container) {
-      /* Mouse */
       canvas.addEventListener('mousedown', function(e) {
         dragging = true; prevPt = {x:e.clientX,y:e.clientY}; vel = {x:0,y:0};
         lastInteract = Date.now();
@@ -1219,7 +325,6 @@
       });
       window.addEventListener('mouseup', function() { dragging = false; lastInteract = Date.now(); });
 
-      /* Touch */
       var t0 = null, initDist = null;
       canvas.addEventListener('touchstart', function(e) {
         e.preventDefault();
@@ -1250,14 +355,12 @@
       }, {passive:false});
       canvas.addEventListener('touchend', function() { dragging=false; t0=null; initDist=null; lastInteract=Date.now(); });
 
-      /* Wheel zoom */
       canvas.addEventListener('wheel', function(e) {
         e.preventDefault();
         camera.position.z = Math.max(1.5, Math.min(4.5, camera.position.z + e.deltaY * 0.0022));
         lastInteract = Date.now();
       }, {passive:false});
 
-      /* Click outside popup */
       container.addEventListener('click', closePopup);
       document.getElementById('popup-close-btn').addEventListener('click', function(e) {
         e.stopPropagation(); closePopup();
@@ -1291,8 +394,7 @@
           if (activeIdx === c.indices[0]) closePopup();
           else openPopup(c.indices[0], this);
         } else {
-          /* Cycle through the cluster on each click */
-          var pos = c.indices.indexOf(activeIdx);
+          var pos  = c.indices.indexOf(activeIdx);
           var next = c.indices[(pos + 1) % c.indices.length];
           openPopup(next, this);
         }
@@ -1306,10 +408,9 @@
       var W = canvas.clientWidth, H = canvas.clientHeight;
       if (!W || !H) return;
       scene.updateMatrixWorld(true);
-      var rotMat = new THREE.Matrix4().extractRotation(globeGroup.matrixWorld);
-      var CLUSTER_D = 8; /* px — pins closer than this merge into one cluster dot */
+      var rotMat   = new THREE.Matrix4().extractRotation(globeGroup.matrixWorld);
+      var CLUSTER_D = 8;
 
-      /* 1. Project all visible pins to screen space */
       var projected = [];
       locations.forEach(function(loc, i) {
         var local  = ll2v(loc.lat, loc.lon, RADIUS);
@@ -1324,7 +425,6 @@
         projected.push({idx: i, x: x, y: y});
       });
 
-      /* 2. Greedy cluster: merge nearby projected pins */
       var used = projected.map(function() { return false; });
       currentClusters = [];
       for (var i = 0; i < projected.length; i++) {
@@ -1341,7 +441,6 @@
         currentClusters.push(c);
       }
 
-      /* 3. Sync DOM pool — create new elements as needed, hide extras */
       while (clusterEls.length < currentClusters.length) clusterEls.push(makePinEl());
       clusterEls.forEach(function(el, ci) {
         if (ci >= currentClusters.length) { el.style.visibility='hidden'; return; }
@@ -1370,7 +469,6 @@
       var ph  = document.getElementById('popup-placeholder');
       img.style.display = 'none';
       ph.style.display  = 'none';
-      /* Try extensions in order: jpg → jpeg → JPG → JPEG → placeholder */
       var exts = ['jpg','jpeg','JPG','JPEG'];
       (function tryNext(i) {
         if (i >= exts.length) { img.style.display='none'; ph.style.display='flex'; ph.textContent=loc.name; return; }
@@ -1382,21 +480,16 @@
       var popup = document.getElementById('travel-popup');
       popup.classList.remove('hidden');
 
-      /* Desktop: appear above pin, clamped inside the globe container */
       if (window.innerWidth > 600) {
-        /* Show offscreen first so we can measure the real rendered size */
         popup.style.left = '-9999px';
         popup.style.top  = '-9999px';
         var pW = popup.offsetWidth;
         var pH = popup.offsetHeight;
         var rect  = pinEl.getBoundingClientRect();
         var cRect = document.getElementById('globe-container').getBoundingClientRect();
-        /* Center on pin, place above it */
         var left = rect.left + rect.width  / 2 - pW / 2;
         var top  = rect.top  - pH - 10;
-        /* Flip below if not enough room above */
         if (top < cRect.top + 6) top = rect.bottom + 10;
-        /* Hard clamp to container bounds */
         left = Math.max(cRect.left + 6, Math.min(cRect.right  - pW - 6, left));
         top  = Math.max(cRect.top  + 6, Math.min(cRect.bottom - pH - 6, top));
         popup.style.left   = left + 'px';
@@ -1411,10 +504,10 @@
       activeIdx = -1;
     }
 
-    /* Lazy-init when section scrolls into view */
     var globeObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) { if (entry.isIntersecting) { init(); globeObserver.disconnect(); } });
     }, { threshold: 0.1 });
+
     document.addEventListener('DOMContentLoaded', function() {
       var sec = document.getElementById('travel');
       if (sec) globeObserver.observe(sec);
@@ -1430,20 +523,7 @@
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Active nav highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { threshold: 0.5 });
-    sections.forEach(s => navObserver.observe(s));
   </script>
+
 </body>
 </html>

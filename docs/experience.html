@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQMYJ1ZE81"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQMYJ1ZE81');
+  </script>
+  <link rel="icon" type="image/x-icon" href="pngs/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="pngs/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="pngs/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="pngs/apple-touch-icon.png" />
+
+  <!-- SEO -->
+  <meta name="description" content="Work experience — Aditya Raj Poudel." />
+  <meta property="og:title" content="Experience — Aditya Raj Poudel" />
+  <meta property="og:description" content="Work experience and roles." />
+  <meta property="og:image" content="https://adityapoudel.live/pngs/preview.png" />
+  <meta property="og:url" content="https://adityapoudel.live/experience.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Experience — Aditya Raj Poudel" />
+  <meta name="twitter:description" content="Work experience and roles." />
+  <meta name="twitter:image" content="https://adityapoudel.live/pngs/preview.png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Aditya Raj Poudel</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            dm: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            bg: '#0d0f1e',
+            surface: '#13152a',
+            surface2: '#1a1d35',
+            accent: '#7c6dfa',
+            accent2: '#fa6d8f',
+            muted: '#7878a0',
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="text-gray-300 min-h-screen relative">
+
+  <!-- Floating Nav -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 nav-glass rounded-full px-2 py-1.5 flex gap-0.5" style="max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="skills.html" class="nav-link">S-Kills</a>
+    <a href="experience.html" class="nav-link active">Experience</a>
+    <a href="showcase.html" class="nav-link">Showcase</a>
+  </nav>
+
+  <main class="relative z-10 max-w-3xl mx-auto px-5 pt-28 pb-24 flex flex-col gap-6">
+
+    <section id="experience" class="fade-up">
+      <div class="card rounded-2xl p-6 sm:p-9">
+        <p class="section-label mb-2">Work Experience</p>
+        <div class="flex items-start justify-between gap-3 flex-wrap mb-1">
+          <h1 class="font-syne text-xl font-bold text-white">Student Success Center — CCBC Essex</h1>
+          <span class="text-xs px-3 py-1 rounded-full border whitespace-nowrap" style="color:#7878a0;background:#1a1d35;border-color:rgba(255,255,255,0.06)">May 2024 – Dec 2025</span>
+        </div>
+        <div class="grad-line mt-3 mb-5"></div>
+        <p class="leading-relaxed mb-4" style="color:#7878a0">
+          Worked part-time as a tutor, helping fellow students with Mathematics and CSIT problems. Earned my CLRA Level 2 certification during this role.
+        </p>
+        <img src="pngs/experience1.png" alt="Student Success Center"
+          class="rounded-xl w-full max-w-sm" style="border: 1px solid rgba(124,109,250,0.12)" />
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chat Widget -->
+  <div id="chat-widget">
+    <div id="chat-bubble"><span id="chat-bubble-text">Ask something about Aditya?</span></div>
+    <div id="raccoon-bob">
+      <button id="chat-robot-btn" aria-label="Chat with AI about Aditya">🦝</button>
+    </div>
+  </div>
+  <div id="chat-backdrop" class="hidden"></div>
+  <div id="chat-panel" class="hidden">
+    <div id="chat-header">
+      <span class="robot-sm">🦝</span>
+      <div>
+        <div class="title">Racoon</div>
+        <div class="subtitle">Fed by Adi :)</div>
+      </div>
+      <button id="chat-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chat-messages">
+      <div class="chat-msg assistant">Hey! I'm Racoon that knows all about Aditya. Ask me anything: his projects, experience, background, anything!</div>
+    </div>
+    <div id="chat-input-row">
+      <textarea id="chat-input" placeholder="Ask something..." rows="1"></textarea>
+      <button id="chat-send" aria-label="Send">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
