@@ -3,6 +3,52 @@
    All pages import this file.
    ============================================================ */
 
+/* ── Footer ── */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  padding: 20px 20px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7878a0;
+  opacity: 0.5;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.footer-icon:hover {
+  color: #a99dff;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.footer-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  display: block;
+}
+
+.footer-copy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: #7878a0;
+  opacity: 0.4;
+  letter-spacing: 0.04em;
+}
+
 /* ── Base ── */
 html { scroll-behavior: smooth; }
 
