@@ -13,9 +13,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../pngs/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../pngs/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="../pngs/apple-touch-icon.png" />
-  <meta name="description" content="SUBS — a subscription tracker that helps you monitor and manage recurring payments in one place." />
+  <meta name="description" content="SUBS — a data-driven soccer substitution recommendation system that analyzes player performance and suggests in-game substitutions." />
   <meta property="og:title" content="SUBS — Aditya Raj Poudel" />
-  <meta property="og:description" content="All your recurring payments, in one place." />
+  <meta property="og:description" content="Smarter subs. Better second halves." />
   <meta property="og:image" content="https://adityapoudel.live/pngs/SUBS.png" />
   <meta property="og:url" content="https://adityapoudel.live/projects/subs.html" />
   <meta property="og:type" content="website" />
@@ -229,7 +229,7 @@
         <p class="section-label mb-2">Project</p>
         <h1 class="font-syne text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-2">SUBS</h1>
         <div class="grad-line mt-3 mb-4"></div>
-        <p class="text-sm leading-relaxed" style="color:#7878a0">All your recurring payments, tracked in one place.</p>
+        <p class="text-sm leading-relaxed" style="color:#7878a0">Smarter subs. Better second halves.</p>
       </div>
     </div>
 
@@ -239,7 +239,17 @@
       <h2 class="font-syne text-lg font-bold text-white mb-1">Why I Built This</h2>
       <div class="grad-line mt-3 mb-5"></div>
       <p class="leading-relaxed" style="color:#7878a0">
-        It's surprisingly easy to lose track of recurring subscriptions — especially smaller ones that quietly charge every month. I needed a simple, no-frills tool to see everything in one view, understand what I'm paying and when, and catch anything I'd forgotten about or no longer needed.
+        In soccer, substitutions are one of the most impactful decisions a manager makes — yet they're often based on gut feel. SUBS was built to bring a data-informed lens to that decision, analyzing player performance during a match and recommending who should come off and who should come on.
+      </p>
+    </div>
+
+    <!-- How I Built It -->
+    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.15s">
+      <p class="section-label mb-2">Build</p>
+      <h2 class="font-syne text-lg font-bold text-white mb-1">How I Built It</h2>
+      <div class="grad-line mt-3 mb-5"></div>
+      <p class="leading-relaxed" style="color:#7878a0">
+        Written entirely in Rust, SUBS is a modular CLI tool with clear separation of concerns. It ingests StatsBomb open football match event data (JSON) and team lineups, then pipes that through a fatigue-scoring module (<code style="color:#a99dff;font-size:0.85em">decay.rs</code>) that computes per-player tiredness using activity decay metrics. A tactical analysis module (<code style="color:#a99dff;font-size:0.85em">matcher.rs</code>) detects performance gaps and positional vulnerabilities, and the recommendation engine maps bench players to the weakest on-field roles. Output is available as plain CLI text or a full-screen interactive terminal dashboard built with <code style="color:#a99dff;font-size:0.85em">ratatui</code>.
       </p>
     </div>
 
@@ -250,6 +260,9 @@
       <div class="grad-line mt-3 mb-5"></div>
       <div class="flex flex-wrap gap-2">
         <span class="tag">Rust</span>
+        <span class="tag">ratatui</span>
+        <span class="tag">clap</span>
+        <span class="tag">StatsBomb JSON</span>
       </div>
     </div>
 
@@ -259,7 +272,7 @@
       <h2 class="font-syne text-lg font-bold text-white mb-1">What It Does</h2>
       <div class="grad-line mt-3 mb-5"></div>
       <p class="leading-relaxed" style="color:#7878a0">
-        Subscription tracker that helps you monitor and manage recurring payments in one place. Add subscriptions with their billing cycle and cost, and get a clear view of your total monthly and annual spend.
+        Takes in match data and player performance metrics, then surfaces substitution recommendations to help a manager make better in-game decisions. Fatigue scores are computed per player, tactical vulnerabilities are identified, and the best available bench option is matched to each gap.
       </p>
     </div>
 
@@ -268,7 +281,9 @@
       <p class="section-label mb-2">Roadmap</p>
       <h2 class="font-syne text-lg font-bold text-white mb-1">What's Next</h2>
       <div class="grad-line mt-3 mb-5"></div>
-      <p class="placeholder-text">Updating soon</p>
+      <p class="leading-relaxed" style="color:#7878a0">
+        Could integrate real-time match data feeds, expand to factor in opponent tactics, and build a visual dashboard for live match management.
+      </p>
     </div>
 
     <!-- Links -->
