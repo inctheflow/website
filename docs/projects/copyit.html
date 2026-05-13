@@ -188,15 +188,12 @@
 
     <!-- Hero -->
     <div class="card rounded-2xl overflow-hidden fade-up" style="transition-delay:0.05s">
-      <div class="proj-img flex flex-col justify-end p-6 sm:p-8" style="background:linear-gradient(135deg,#1a1d35 0%,#13152a 55%,#1a1535 100%);">
-        <p class="font-syne text-xs font-bold tracking-widest uppercase mb-2" style="color:#7c6dfa">CopyIt</p>
-        <p class="font-syne text-lg sm:text-xl font-semibold leading-snug" style="color:#e0e0f5">"Built because Ctrl+C shouldn't have exceptions."</p>
-      </div>
+      <img src="../pngs/copyit.png" alt="CopyIt" class="proj-img" />
       <div class="p-6 sm:p-9">
         <p class="section-label mb-2">Project</p>
         <h1 class="font-syne text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-2">CopyIt</h1>
         <div class="grad-line mt-3 mb-4"></div>
-        <p class="text-sm leading-relaxed" style="color:#7878a0">A macOS utility that lets you copy text from anywhere on screen — even when the site blocks it.</p>
+        <p class="text-sm leading-relaxed" style="color:#7878a0">Built because Ctrl+C shouldn't have exceptions.</p>
       </div>
     </div>
 
@@ -213,21 +210,8 @@
       </p>
     </div>
 
-    <!-- How I Built It -->
-    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.15s">
-      <p class="section-label mb-2">Process</p>
-      <h2 class="font-syne text-lg font-bold text-white mb-1">How I Built It</h2>
-      <div class="grad-line mt-3 mb-5"></div>
-      <p class="leading-relaxed" style="color:#7878a0">
-        The first step was identifying exactly how copy protection works. Most sites rely on two mechanisms: CSS <code style="background:rgba(124,109,250,0.12);color:#a99dff;padding:1px 6px;border-radius:4px;font-size:12px;">user-select: none</code>, which tells the browser not to let the user highlight text, and JavaScript event listeners that cancel <code style="background:rgba(124,109,250,0.12);color:#a99dff;padding:1px 6px;border-radius:4px;font-size:12px;">selectstart</code>, <code style="background:rgba(124,109,250,0.12);color:#a99dff;padding:1px 6px;border-radius:4px;font-size:12px;">contextmenu</code>, and <code style="background:rgba(124,109,250,0.12);color:#a99dff;padding:1px 6px;border-radius:4px;font-size:12px;">copy</code> events before they reach the user.
-      </p>
-      <p class="leading-relaxed mt-4" style="color:#7878a0">
-        CopyIt takes a different approach entirely. Rather than fighting these restrictions at the browser layer, it captures the screen region you select using macOS's native Vision framework, which performs OCR directly on the pixels. This means it doesn't matter what the website has blocked — the tool reads the text visually, exactly as you see it, and hands it to your clipboard. No browser extension needed, no page interaction required.
-      </p>
-    </div>
-
     <!-- Tech Stack -->
-    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.2s">
+    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.15s">
       <p class="section-label mb-2">Stack</p>
       <h2 class="font-syne text-lg font-bold text-white mb-1">Tech Stack</h2>
       <div class="grad-line mt-3 mb-5"></div>
@@ -242,7 +226,7 @@
     </div>
 
     <!-- What It Does -->
-    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.25s">
+    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.2s">
       <p class="section-label mb-2">Features</p>
       <h2 class="font-syne text-lg font-bold text-white mb-1">What It Does</h2>
       <div class="grad-line mt-3 mb-5"></div>
@@ -252,7 +236,7 @@
     </div>
 
     <!-- What's Next -->
-    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.3s">
+    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.25s">
       <p class="section-label mb-2">Roadmap</p>
       <h2 class="font-syne text-lg font-bold text-white mb-1">What's Next</h2>
       <div class="grad-line mt-3 mb-5"></div>
@@ -262,7 +246,7 @@
     </div>
 
     <!-- Links -->
-    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.35s">
+    <div class="card rounded-2xl p-6 sm:p-9 fade-up" style="transition-delay:0.3s">
       <p class="section-label mb-4">Links</p>
       <div class="flex flex-wrap gap-3">
         <a href="https://github.com/inctheflow/CopyIt" target="_blank" class="btn-primary">View on GitHub →</a>
